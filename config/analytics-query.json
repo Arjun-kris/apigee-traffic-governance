@@ -1,0 +1,18 @@
+{
+  "metrics": [
+    {
+      "name": "message_count",
+      "function": "sum"
+    },
+    {
+      "name": "total_response_time",
+      "function": "avg"
+    }
+  ],
+  "dimensions": [
+    "apiproxy"
+  ],
+  "groupByTimeUnit": "minute",
+  "limit": 1000,
+  "timeRange": "last60minutes"
+}

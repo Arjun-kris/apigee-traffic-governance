@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations
+    continueOnError="true"
+    enabled="true"
+    name="KVM-Get-Governance-Config"
+    mapIdentifier="GLOBAL_GATEWAY_GOVERNANCE">
+
+  <DisplayName>Read Global Governance Configuration</DisplayName>
+  <Properties/>
+
+  <!--
+    KVM reads are cached by Apigee. A 60 second expiry gives operationally
+    useful updates without reading persistent storage on every request.
+  -->
+  <ExpiryTimeInSecs>60</ExpiryTimeInSecs>
+  <Scope>environment</Scope>
+
+  <Get assignTo="private.governance.config" index="1">
+    <Key>
+      <Parameter>config</Parameter>
+    </Key>
+  </Get>
+</KeyValueMapOperations>

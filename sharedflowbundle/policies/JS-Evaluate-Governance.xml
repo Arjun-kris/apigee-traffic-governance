@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript
+    continueOnError="false"
+    enabled="true"
+    timeLimit="50"
+    name="JS-Evaluate-Governance">
+
+  <DisplayName>Evaluate Governance Decision</DisplayName>
+  <Properties/>
+  <ResourceURL>jsc://evaluate-governance.js</ResourceURL>
+</Javascript>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+  <Description>
+    Reads the central KVM configuration, evaluates the request, and applies
+    targeted SpikeArrest only to explicitly configured proxies.
+  </Description>
+
+  <Step>
+    <Name>KVM-Get-Governance-Config</Name>
+  </Step>
+
+  <Step>
+    <Name>JS-Evaluate-Governance</Name>
+  </Step>
+
+  <Step>
+    <Condition>
+      governance.enforce = "true" AND governance.bypass = "false"
+    </Condition>
+    <Name>SA-Targeted-Proxy</Name>
+  </Step>
+</SharedFlow>

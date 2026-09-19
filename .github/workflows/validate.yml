@@ -1,0 +1,35 @@
+name: Validate Apigee project
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate project
+        run: bash scripts/validate.sh
+
+      - name: Package shared flow
+        run: bash scripts/package-sharedflow.sh
+
+      - name: Verify package contents
+        run: unzip -l dist/global-gateway-governance.zip

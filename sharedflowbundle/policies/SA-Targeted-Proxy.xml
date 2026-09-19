@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SpikeArrest
+    continueOnError="false"
+    enabled="true"
+    name="SA-Targeted-Proxy">
+
+  <DisplayName>Targeted Per-Proxy Spike Arrest</DisplayName>
+  <Properties/>
+
+  <!--
+    Explicitly group the shared-flow rate limiter by API proxy name.
+    This prevents one proxy from sharing the same rate bucket with another.
+  -->
+  <Identifier ref="governance.proxy"/>
+
+  <!-- Dynamic rate such as 100ps or 500pm. -->
+  <Rate ref="governance.rate">100ps</Rate>
+
+  <!-- Recommended for Apigee organizations for distributed rate counting. -->
+  <UseEffectiveCount>true</UseEffectiveCount>
+</SpikeArrest>

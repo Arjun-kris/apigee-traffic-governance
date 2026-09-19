@@ -1,0 +1,12 @@
+{
+  "mode": "monitor",
+  "throttleProxies": {
+    "orders-api": "200ps",
+    "catalog-api": "150ps"
+  },
+  "bypassProxies": [
+    "payment-api",
+    "authentication-api",
+    "health-api"
+  ]
+}
